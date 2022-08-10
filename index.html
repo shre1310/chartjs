@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom legend for chartjs</title>
+    <style type="text/css">
+        .chartBox {
+            width: 700px;
+        }
+        .legendBox {
+            width: 700px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+        .item {
+            padding: 5px 10px;
+            margin: 10px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="chartBox">
+    <canvas id="myChart"></canvas>
+    </div>
+
+        <div class = "legendBox">
+            <button class="'item">Red</button>
+            <button class="item">Golden</button>
+            <button class="item">Blue</button>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+                label: 'Red of Votes',
+                data: [12, 29, 13, 15, 12, 13],
+                borderColor:'rgba(255, 99, 132, 1)',
+                backgroundColor:'rgba(255, 99, 132, 1)',
+                
+                borderWidth: 1
+            }, {
+                label: 'Golden of Votes',
+                data: [22, 9, 3, 35, 2, 22 ],
+                borderColor: '	rgb(234, 221, 202)',
+                backgroundColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+                },
+                
+                {
+                label: 'Blue of Votes',
+                data: [21, 9, 20, 5, 22, 24],
+                borderColor: 'rgba(64, 172, 236, 1)',
+                backgroundColor: 'rgba(64, 172, 236, 1)',
+                borderWidth: 1
+                }
+                
+    
+    ]
+    },
+    options: {
+        tension: 0.4,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
